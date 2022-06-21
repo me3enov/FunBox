@@ -7,6 +7,7 @@ export default class Card {
     this.availability = item.availability;
     this.subtitle = item.subtitle;
     this.promoItems = item.promoItems;
+    this.subtextSelected = item.subtextSelected;
     this.labelNumber = item.labelNumber;
     this.image = item.image;
 
@@ -18,7 +19,6 @@ export default class Card {
     this.labelText = config.TEXTS.labelText;
     this.subtext = config.TEXTS.subtext;
     this.subtextBuy = config.TEXTS.subtextBuy;
-    this.subtextSelected = config.TEXTS.subtextSelected;
     this.subtextDisable = config.TEXTS.subtextDisable;
 
     // config to a "Card" class
