@@ -1,8 +1,8 @@
 .root__content {
-  padding: 0 80px;
+  padding: 0 80px 30px;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-widxh: 480px) {
   .root__content {
     padding: 0;
   }

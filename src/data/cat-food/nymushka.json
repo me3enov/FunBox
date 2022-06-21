@@ -21,7 +21,7 @@
       "image": "src/images/cat-food/nymushka/cat.png"
     },
     "item3": {
-      "availability" : "false",
+      "availability" : "true",
       "subtitle": "с курой",
       "promoItems": {
         "promoCount": "100 порция",
