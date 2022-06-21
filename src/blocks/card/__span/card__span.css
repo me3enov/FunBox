@@ -1,0 +1,11 @@
+.card__span {
+  font-size: 13px;
+  line-height: 15px;
+  font-weight: 700;
+  text-align: left;
+  color: #1698D9;
+  border-bottom: 1px dashed #1698D9;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}

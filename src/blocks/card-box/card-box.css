@@ -1,0 +1,12 @@
+.card-box {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(../../images/card/card.svg);
+  height: 480px;
+  width: 320px;
+  cursor: pointer;
+}
