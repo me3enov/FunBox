@@ -43,7 +43,6 @@ export const configCard = {
   CARD_SELECTED_CLASS: 'card_selected',
   CARD_TEXT_DISABLED_CLASS: 'card__text_disabled',
   CARD_SPAN_HOVERED_CLASS: 'card__span_hovered',
-  CARD_BOX_DISABLED_CLASS: 'card-box_disabled',
   IMAGE_DISABLED_CLASS: 'card-box__image_disabled',
   LABEL_DISABLED_CLASS: 'card-box__label_disabled',
   LABEL_HOVERED_CLASS: 'card-box__label_hovered',

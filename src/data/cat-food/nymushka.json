@@ -1,7 +1,7 @@
 {
   "items": {
     "item1": {
-      "availability" : "true",
+      "disabled" : false,
       "subtitle": "c фуа-гра",
       "promoItems": {
         "promoCount": "20 порция",
@@ -12,7 +12,7 @@
       "image": "src/images/cat-food/nymushka/cat.png"
     },
     "item2": {
-      "availability" : "true",
+      "disabled" : false,
       "subtitle": "c рыбой",
       "promoItems": {
         "promoCount": "40 порция",
@@ -23,7 +23,7 @@
       "image": "src/images/cat-food/nymushka/cat.png"
     },
     "item3": {
-      "availability" : "true",
+      "disabled" : true,
       "subtitle": "c курой",
       "promoItems": {
         "promoCount": "100 порция",
