@@ -19,7 +19,7 @@ export default class Api {
   // check response from server
   checkServerResponse(res) {
     if (!res.ok) {
-      return Promise.reject(new Error(`${this.errorText} ${res.status}`));
+      return Promise.reject(new Error(`${this.ERROR_TEXT} ${res.status}`));
     }
     return res.json();
   }
