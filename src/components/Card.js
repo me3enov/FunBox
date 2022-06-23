@@ -29,11 +29,10 @@ export default class Card {
     // selectors
     this.CARD_TEXT_SELECTOR = config.CARD_TEXT_SELECTOR;
     this.CARD_SPAN_SELECTOR = config.CARD_SPAN_SELECTOR;
+
     this.CARD_BOX_SELECTOR = config.CARD_BOX_SELECTOR;
     this.IMAGE_SELECTOR = config.IMAGE_SELECTOR;
-    this.BORDER_SELECTOR = config.BORDER_SELECTOR;
     this.STROKE_SELECTOR = config.STROKE_SELECTOR;
-    this.INFO_SELECTOR = config.INFO_SELECTOR;
     this.TEXT_SELECTOR = config.TEXT_SELECTOR;
     this.TITLE_SELECTOR = config.TITLE_SELECTOR;
     this.SUBTITLE_SELECTOR = config.SUBTITLE_SELECTOR;
@@ -222,11 +221,10 @@ export default class Card {
     this.element = this.getTemplateCard();
     this.cardTextElement = this.element.querySelector(this.CARD_TEXT_SELECTOR);
     this.cardSpanElement = this.element.querySelector(this.CARD_SPAN_SELECTOR);
+
     this.cardBoxElement = this.element.querySelector(this.CARD_BOX_SELECTOR);
     this.imageElement = this.element.querySelector(this.IMAGE_SELECTOR);
-    this.borderElement = this.element.querySelector(this.BORDER_SELECTOR);
     this.strokeElement = this.element.querySelector(this.STROKE_SELECTOR);
-    this.infoElement = this.element.querySelector(this.INFO_SELECTOR);
     this.textElement = this.element.querySelector(this.TEXT_SELECTOR);
     this.titleElement = this.element.querySelector(this.TITLE_SELECTOR);
     this.subtitleElement = this.element.querySelector(this.SUBTITLE_SELECTOR);
@@ -242,6 +240,7 @@ export default class Card {
     // set variables promo list
     this.cardTextElement.textContent = `${this.subtext}\u00A0`;
     this.cardSpanElement.textContent = this.subtextBuy;
+
     this.imageElement.style.backgroundImage = `url(${this.image})`;
     this.textElement.textContent = this.text;
     this.titleElement.textContent = this.title;

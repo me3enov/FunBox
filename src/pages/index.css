@@ -22,6 +22,7 @@
 /* card */
 @import url(../blocks/card/card.css);
 @import url(../blocks/card/__action-text/card__action-text.css);
+@import url(../blocks/card/__text-box/card__text-box.css);
 @import url(../blocks/card/__text/card__text.css);
 @import url(../blocks/card/__span/card__span.css);
 /* card modifier*/
@@ -36,6 +37,7 @@
 @import url(../blocks/card-box/__subtitle/card-box__subtitle.css);
 @import url(../blocks/card-box/__promo-list/card-box__promo-list.css);
 @import url(../blocks/card-box/__promo-box/card-box__promo-box.css);
+@import url(../blocks/card-box/__promo-text-box/card-box__promo-text-box.css);
 @import url(../blocks/card-box/__promo-text/card-box__promo-text.css);
 @import url(../blocks/card-box/__promo-span/card-box__promo-span.css);
 @import url(../blocks/card-box/__image/card-box__image.css);
