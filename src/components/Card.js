@@ -55,6 +55,7 @@ export default class Card {
     this.CARD_SELECTED_CLASS = config.CARD_SELECTED_CLASS;
     this.CARD_TEXT_DISABLED_CLASS = config.CARD_TEXT_DISABLED_CLASS;
     this.CARD_SPAN_HOVERED_CLASS = config.CARD_SPAN_HOVERED_CLASS;
+    this.CARD_BOX_DISABLED_CLASS = config.CARD_BOX_DISABLED_CLASS;
     this.IMAGE_DISABLED_CLASS = config.IMAGE_DISABLED_CLASS;
     this.LABEL_DISABLED_CLASS = config.LABEL_DISABLED_CLASS;
     this.LABEL_HOVERED_CLASS = config.LABEL_HOVERED_CLASS;
@@ -94,15 +95,11 @@ export default class Card {
   }
 
   // CARD STATE START
-  changeCardDisabled() {
-    this.element.classList.contains(this.CARD_DISABLED_CLASS)
-      ? this.removeCardDisabled() : this.addCardDisabled();
-  }
-
   // add disabled
   addCardDisabled() {
     this.removeCardHovered();
     this.element.classList.add(this.CARD_DISABLED_CLASS);
+    this.cardBoxElement.classList.add(this.CARD_BOX_DISABLED_CLASS);
     this.cardTextElement.classList.add(this.CARD_TEXT_DISABLED_CLASS);
     this.imageElement.classList.add(this.IMAGE_DISABLED_CLASS);
     this.lebelElement.classList.add(this.LABEL_DISABLED_CLASS);
@@ -113,21 +110,6 @@ export default class Card {
     this.promoListElement.classList.add(this.PROMO_LIST_DISABLED_CLASS);
     this.cardTextElement.textContent = this.replaceText(this.subtextDisable);
     this.cardSpanElement.textContent = '';
-  }
-
-  // remove disabled
-  removeCardDisabled() {
-    this.element.classList.remove(this.CARD_DISABLED_CLASS);
-    this.cardTextElement.classList.remove(this.CARD_TEXT_DISABLED_CLASS);
-    this.imageElement.classList.remove(this.IMAGE_DISABLED_CLASS);
-    this.lebelElement.classList.remove(this.LABEL_DISABLED_CLASS);
-    this.strokeElement.classList.remove(this.STROKE_DISABLED_CLASS);
-    this.subtitleElement.classList.remove(this.SUBTITLE_DISABLED_CLASS);
-    this.textElement.classList.remove(this.TEXT_DISABLED_CLASS);
-    this.titleElement.classList.remove(this.TITLE_DISABLED_CLASS);
-    this.promoListElement.classList.remove(this.PROMO_LIST_DISABLED_CLASS);
-    this.cardTextElement.textContent = `${this.subtext}\u00A0`;
-    this.cardSpanElement.textContent = this.subtextBuy;
   }
 
   // CARD HOVERED
@@ -182,11 +164,6 @@ export default class Card {
     this.textElement.textContent = this.text;
   }
 
-  // CARD SELECTED
-  checkDisable() {
-    this.disabled ? this.changeCardDisabled() : this.changeCardSelected();
-  }
-
   changeCardSelected() {
     this.element.classList.contains(this.CARD_SELECTED_CLASS)
       ? this.removeCardSelected() : this.addCardSelected();
@@ -231,10 +208,10 @@ export default class Card {
 
   // set event listeners the "Card" class
   setEventListeners() {
-    this.cardBoxElement.addEventListener('click', () => this.checkDisable());
+    this.cardBoxElement.addEventListener('click', () => this.changeCardSelected());
     this.cardBoxElement.addEventListener('mouseenter', () => this.addCardAllHovered());
     this.cardBoxElement.addEventListener('mouseleave', () => this.removeCardAllHovered());
-    this.cardSpanElement.addEventListener('click', () => this.checkDisable());
+    this.cardSpanElement.addEventListener('click', () => this.changeCardSelected());
     this.cardSpanElement.addEventListener('mouseenter', () => this.addSpanSelected());
     this.cardSpanElement.addEventListener('mouseleave', () => this.removeSpanSelected());
   }
@@ -272,7 +249,7 @@ export default class Card {
     this.lebelNumberElement.textContent = this.labelNumber;
     this.lebelTextElement.textContent = this.labelText;
     // set iven listeners
-    this.setEventListeners();
+    this.disabled ? this.addCardDisabled() : this.setEventListeners();
 
     return this.element;
   }
