@@ -9,7 +9,7 @@ export default class Card {
     this.promoItems = item.promoItems;
     this.subtextSelected = item.subtextSelected;
     this.labelNumber = item.labelNumber;
-    this.image = item.image;
+    this.imageClass = item.imageClass;
 
     // text to a card
     this.texts = config.TEXTS;
@@ -241,7 +241,7 @@ export default class Card {
     this.cardTextElement.textContent = `${this.subtext}\u00A0`;
     this.cardSpanElement.textContent = this.subtextBuy;
 
-    this.imageElement.style.backgroundImage = `url(${this.image})`;
+    this.imageElement.classList.add(this.imageClass);
     this.textElement.textContent = this.text;
     this.titleElement.textContent = this.title;
     this.subtitleElement.textContent = this.subtitle;

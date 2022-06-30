@@ -9,7 +9,7 @@
       },
       "labelNumber": "0,5",
       "subtextSelected": "Печень утки разварная c артишоками.",
-      "image": "src/images/cat-food/nymushka/cat.png"
+      "imageClass": "card-box__image_nymushka"
     },
     "item2": {
       "disabled" : false,
@@ -20,7 +20,7 @@
       },
       "subtextSelected": "Головы щучьи c чесноком да свежайшая сёмгушка.",
       "labelNumber": "2",
-      "image": "src/images/cat-food/nymushka/cat.png"
+      "imageClass": "card-box__image_nymushka"
     },
     "item3": {
       "disabled" : true,
@@ -32,7 +32,7 @@
       },
       "subtextSelected": "Филе из цыплят c трюфелями в бульоне.",
       "labelNumber": "5",
-      "image": "src/images/cat-food/nymushka/cat.png"
+      "imageClass": "card-box__image_nymushka"
     }
   },
   "texts": {
