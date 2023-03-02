@@ -1,7 +1,7 @@
+const GLOBAL_SASS_REGEXP = /\.global\.sass$/;
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
@@ -31,15 +31,18 @@ module.exports = {
       type: 'asset/resource',
     },
     {
-      test: /\.css$/,
-      use: [MiniCssExtractPlugin.loader, {
-        loader: 'css-loader',
-        options: {
-          importLoaders: 1,
-        },
-      },
-      'postcss-loader',
+      test: /\.s[ac]ss$/i,
+      use: [
+        { loader: 'style-loader' },
+        { loader: 'css-loader' },
+        { loader: 'postcss-loader' },
+        { loader: 'sass-loader' },
       ],
+      exclude: GLOBAL_SASS_REGEXP,
+    },
+    {
+      test: GLOBAL_SASS_REGEXP,
+      use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
     },
     ],
   },
@@ -48,6 +51,5 @@ module.exports = {
       template: './src/index.html',
     }),
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin(),
   ],
 };

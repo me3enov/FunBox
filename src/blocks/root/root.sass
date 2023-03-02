@@ -1,0 +1,17 @@
+@import '../../pages/config'
+
+.root
+    display: grid
+    grid-template-rows: 1fr
+    align-items: start
+    margin: 0 auto
+    width: 100%
+    padding-left: $minPadding
+    padding-right: $minPadding
+    @include for-tablet-landscape-up
+        width: 100%
+        max-width: $maxWidth
+        padding-left: $maxPadding
+        padding-right: $maxPadding
+
+    border: 1px solid red

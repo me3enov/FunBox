@@ -1,5 +1,5 @@
 // import CSS
-import './index.css';
+import './main.global.sass';
 // import constants
 import {
   apiConfig,

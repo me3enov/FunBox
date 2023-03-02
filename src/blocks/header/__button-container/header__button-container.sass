@@ -1,0 +1,16 @@
+.header__button-container
+  position: relative
+  display: flex
+  align-items: center
+  justify-content: center
+  margin-left: -40px
+  width: 130px
+  &:before
+    @include createBefore (84px, 78px, '')
+    @include createBlur (rgba(201, 115, 53), 50px, 0.68, 500px)
+  &:hover:before
+    @include createAnimationScale (translatingBefore, .4s, linear, 0s, 1, forwards, 0.8)
+  @include for-tablet-landscape-up
+    @media (min-width: 1440px)
+      width: auto
+      margin-left: 0

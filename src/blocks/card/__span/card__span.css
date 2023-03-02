@@ -1,8 +1,0 @@
-.card__span {
-  font-weight: 700;
-  color: #1698D9;
-  border-bottom: 1px dashed #1698D9;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  -webkit-tap-highlight-color: transparent;
-  cursor: pointer;
-}

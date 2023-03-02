@@ -1,0 +1,280 @@
+/* COLORS*/
+/* background color*/
+$background: #1b1b1a
+
+/* white*/
+$whiteLightness: 100%
+$white: hsl(0, 0%, $whiteLightness)
+
+/* gold*/
+$gold: #ffcf7a
+
+/* light gold*/
+$lightGold: #eccf94
+
+/* light gradient*/
+$gradientLight: linear-gradient(270.21deg, #FFD9C4 18.08%, #FFFFFF 68.72%)
+
+/* dark gradient*/
+$gradientDark: linear-gradient(270.21deg, #F98B4D 18.08%, #FF6752 68.72%)
+
+/* header__company-description*/
+$gray6D: hsl(0, 0%, calc($whiteLightness - 57%))
+
+/* header__menu-item*/
+$gray94: hsl(0, 0%, calc($whiteLightness - 42%))
+
+
+/* SIZES*/
+$pageWidth: 100%
+$screenWidth: 100vw
+$maxWidth: 1440px
+$maxPadding: 123px
+$minPadding: 40px
+
+%contentSize
+    width: 100%
+    max-width: $maxWidth
+    padding: 0 $maxPadding
+
+
+/* MEDIA QUERY*/
+@mixin for-phone-only
+    @media (max-width: 839px)
+        @content
+
+@mixin for-tablet-landscape-up
+    @media (min-width: 1440px)
+        @content
+
+@mixin widthWithIndents($minIndents, $maxIndents)
+    max-width: calc($screenWidth - ($minPadding * 2) - $minIndents)
+    @include for-tablet-landscape-up
+        max-width: calc($maxWidth - ($maxPadding * 2) - $maxIndents)
+
+
+%fontSansCY
+    font-family: 'Scania Sans CY Headline', Sans-serif
+    font-style: normal
+
+/* DECORATION*/
+%scaleLink
+    transform: scale(1.08)
+
+%uppercase
+    text-transform: uppercase
+
+%opacityHover
+    &:hover,&:focus
+        opacity: .8
+
+%transition
+    transition: .5s
+
+%overflow
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+
+/* MIXINS*/
+@mixin setBackgroundImage ($path, $repeat, $position, $size)
+    background-repeat: $repeat
+    background-position: $position
+    background-size: $size
+    @media (min-resolution: 1dppx)
+        background-image: url($path + '_x1.png')
+    @media (min-resolution: 2dppx)
+        background-image: url($path + '_x2.png')
+    @media (min-resolution: 3dppx)
+        background-image: url($path + '_x3.png')
+    @media (min-resolution: 4dppx)
+        background-image: url($path + '_x4.png')
+
+@mixin setBackgroundImageSimple ($path, $repeat, $position, $size)
+    background-repeat: $repeat
+    background-position: $position
+    background-size: $size
+    background-image: url($path)
+
+
+@mixin setBackgroundSvg ($path, $width, $height)
+    background-image: url($path)
+    background-size: $width, $height
+    background-repeat: no-repeat
+    background-position: center
+
+@mixin createAfter ($width, $height, $content)
+    content: $content
+    position: absolute
+    width: $width
+    height: $height
+
+@mixin createBefore ($width, $height, $content)
+    content: $content
+    position: absolute
+    width: $width
+    height: $height
+
+@mixin createBlur ($color, $blurSize, $opacity, $radius)
+    background: $color
+    border-radius: $radius
+    filter: blur($blurSize)
+    opacity: $opacity
+
+@mixin setFontStyle ($weight, $size, $height, $spacing)
+    font-weight: $weight
+    font-size: $size
+    line-height: $height
+    letter-spacing: $spacing
+
+@mixin setLineClamp ($count)
+    overflow: hidden
+    text-overflow: ellipsis
+    display: -moz-box
+    -moz-box-orient: vertical
+    display: -webkit-box
+    -webkit-line-clamp: $count
+    -webkit-box-orient: vertical
+    line-clamp: $count
+    box-orient: vertical
+
+@mixin createButton ($width, $height)
+    width: $width
+    height: $height
+
+@mixin createAnimationButton ($name, $duration, $function, $delay, $repeat, $startY, $startX, $endY, $endX)
+    animation: $name $duration $function $delay $repeat
+    @-webkit-keyframes #{$name}
+        0%
+            -webkit-transform: translate($startY, $startX)
+        50%
+            -webkit-transform: translate($endY, $endX)
+        100%
+            -webkit-transform: translate($startY, $startX)
+
+    @keyframes #{$name}
+        0%
+            transform: translate($startY, $startX)
+        50%
+            transform: translate($endY, $endX)
+        100%
+            transform: translate($startY, $startX)
+
+@mixin createAnimationScale ($name, $duration, $function, $delay, $repeat, $fill, $scale)
+    animation: $name $duration $function $delay $repeat
+    animation-fill-mode: $fill
+    @-webkit-keyframes #{$name}
+        100%
+            -webkit-transform: scale($scale)
+            transform: scale($scale)
+
+    @keyframes #{$name}
+        100%
+            -webkit-transform: scale($scale)
+            transform: scale($scale)
+
+@mixin animationLink ($width, $height, $blur)
+    @extend %transition
+    @extend %opacityHover
+    &:hover, &:focus
+        background: linear-gradient(226.43deg, $gold 49.37%, $background 99.78%)
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+        background-clip: text
+    text-fill-color: transparent
+    &:hover:before, &:focus:before
+        @include createBefore ($width, $height, '')
+        @include createBlur (rgba(201, 115, 53), $blur, 0.68, 50%)
+        @include createAnimationScale (translatingBefore, .4s, linear, 0s, 1, forwards, 0.8)
+
+/* STYLE FOR ALL PAGE*/
+a,
+button,
+select,
+input
+    border: none
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0)
+    -webkit-tap-highlight-color: transparent
+    &:focus,
+    &:active,
+    &:hover
+        outline: none
+        border: none
+
+*
+    color: $white
+    -webkit-box-sizing: border-box
+    box-sizing: border-box
+    font-family: 'Lab Grotesque', Sans-serif
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    text-rendering: optimizeLegibility
+    -webkit-text-size-adjust: 100%
+    -ms-text-size-adjust: 100%
+    -moz-text-size-adjust: 100%
+    -webkit-font-feature-settings: 'kern'
+    font-feature-settings: 'kern'
+    padding: 0
+    margin: 0
+    -webkit-user-select: none
+    -khtml-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+
+a
+    background-color: transparent
+    text-decoration: none
+
+img
+    border-style: none
+
+ul
+    list-style: none
+
+button,
+input,
+optgroup,
+select,
+textarea
+    margin: 0
+
+button,
+select
+    text-transform: none
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"]
+    -webkit-appearance: button
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner
+    border-style: none
+    padding: 0
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring
+    outline: 1px dotted ButtonText
+
+fieldset
+    padding: 0
+
+textarea
+    overflow: auto
+
+[type="checkbox"],
+[type="radio"]
+    box-sizing: border-box /* 1 */
+    padding: 0 /* 2 */
+
+template
+    display: none
+
+[hidden]
+    display: none

@@ -1,9 +1,0 @@
-.root__content {
-  padding: 30px 80px 45px;
-}
-
-@media screen and (max-widxh: 480px) {
-  .root__content {
-    padding: 30px 0 45px;
-  }
-}

@@ -1,0 +1,31 @@
+@import '../../../pages/config'
+
+.button_header
+  width: 50px
+  height: 50px
+  display: flex
+  flex-shrink: 0
+  flex-direction: row
+  align-items: center
+  justify-content: center
+  padding: 0
+  margin: 20px 0
+  @extend %transition
+  &:before
+    top: 0
+    left: 0
+    transform: translate(-15px, 15px)
+    @include createBefore (45px, 100px, '')
+    @include createBlur ($gradientDark, 25px, 0.8, 50%)
+  &:after
+    bottom: 0
+    right: 0
+    transform: translate(15px, -15px)
+    @include createAfter (45px, 100px, '')
+    @include createBlur ($gradientLight, 25px, 0.8, 50%)
+  &:hover:before, &:focus:before
+    @include createAnimationButton (translatingBeforeButtonHeader, .4s, linear, 0s, 1, -15px, 15px, 15px, -65px)
+  &:hover:after, &:focus:after
+    @include createAnimationButton (translatingAfterButtonHeader, .4s, linear, 0s, 1, 15px, -15px, -15px, -65px)
+  &:hover, &:focus
+    @extend %scaleLink
